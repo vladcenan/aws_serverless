@@ -1,0 +1,43 @@
+{
+  "Comment": "Serverless",
+  "StartAt": "Gambemartest",
+  "States": {
+    "Gambemartest": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:eu-west-1:408636776942:function:gambemartest",
+      "Next": "GUID"
+    },
+    "GUID": {
+      "Type": "Parallel",
+      "Next": "Done",
+      "Branches": [
+        {
+         "StartAt": "Gambemartest2",
+         "States": {
+           "Gambemartest2": {
+             "Type": "Task",
+             "Resource":
+               "arn:aws:lambda:eu-west-1:408636776942:function:gambemartest2",
+             "End": true
+           }
+         }
+       },
+       {
+         "StartAt": "Gambemartest3",
+         "States": {
+           "Gambemartest3": {
+             "Type": "Task",
+             "Resource":
+               "arn:aws:lambda:eu-west-1:408636776942:function:gambemartest3",
+             "End": true
+           }
+         }
+       }
+      ]
+    },
+    "Done": {
+      "Type": "Pass",
+      "End": true
+    }
+  }
+}
