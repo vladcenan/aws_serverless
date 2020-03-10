@@ -6,15 +6,15 @@ import time
 from botocore.exceptions import ClientError
 
 def get_secret():
-  secret_name = os.environ['secret_name']
-  region_name = os.environ['aws_region']
-  endpoint_name = None
+  secret_name   = os.environ['secrets_manager_name']
+  region_name   = os.environ['aws_region']
+  endpoint_name = ${secrets_manager_endpoint}
 
   # Create a Secrets Manager client
   session = boto3.session.Session()
   client = session.client(
     service_name = 'secretsmanager',
-    region_name = region_name,
+    region_name  = region_name,
     endpoint_url = endpoint_name
   )
 
@@ -49,21 +49,21 @@ def parse_secret():
   return key
 
 def connection():
-  mongo_key = parse_secret()
-  mongo_admin_user = mongo_key["mongo_admin_user"]
-  mongo_admin_pass = mongo_key["mongo_admin_pass"]
+  key = parse_secret()
+  mongo_admin_user = key["username"]
+  mongo_admin_pass = key["password"]
   # mongo connection
   print("mongo --port 27017 -u "+mongo_admin_user+" -p "+mongo_admin_pass)
   # return id
   guid1 = "a646eee4-1616-48f7-b3e2-f50f037d3152"
   guid2 = "904ce391-4740-4300-8cdf-8541a9241d16"
-  return(guid1, guid2) 
+  return(guid1, guid2)
 
 def lambda_handler(event, context):
   print("Add credentials and key")
   try:
     guid = connection()
-    ids = [guid] 
+    ids = [guid]
     return(guid)
   except Exception as e:
     raise e

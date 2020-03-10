@@ -1,10 +1,10 @@
 {
   "Comment": "Serverless",
-  "StartAt": "Gambemartest",
+  "StartAt": "SecretsLambda",
   "States": {
-    "Gambemartest": {
+    "SecretsLambda": {
       "Type": "Task",
-      "Resource": "arn:aws:lambda:eu-west-1:408636776942:function:gambemartest",
+      "Resource": "${secrets-lambda-function-arn}",
       "Next": "GUID"
     },
     "GUID": {
@@ -12,23 +12,23 @@
       "Next": "Done",
       "Branches": [
         {
-         "StartAt": "Gambemartest2",
+         "StartAt": "GetLambda",
          "States": {
-           "Gambemartest2": {
+           "GetLambda": {
              "Type": "Task",
              "Resource":
-               "arn:aws:lambda:eu-west-1:408636776942:function:gambemartest2",
+               "${get-lambda-function-arn}",
              "End": true
            }
          }
        },
        {
-         "StartAt": "Gambemartest3",
+         "StartAt": "SetLambda",
          "States": {
-           "Gambemartest3": {
+           "SetLambda": {
              "Type": "Task",
              "Resource":
-               "arn:aws:lambda:eu-west-1:408636776942:function:gambemartest3",
+               "${set-lambda-function-arn}",
              "End": true
            }
          }
