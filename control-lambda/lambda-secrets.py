@@ -55,8 +55,8 @@ def connection():
   # mongo connection
   print("mongo --port 27017 -u "+mongo_admin_user+" -p "+mongo_admin_pass)
   # return id
-  guid1 = "a646eee4-1616-48f7-b3e2-f50f037d3152"
-  guid2 = "904ce391-4740-4300-8cdf-8541a9241d16"
+  guid1 = "${uuid1}"
+  guid2 = "${uuid2}"
   return(guid1, guid2)
 
 def lambda_handler(event, context):

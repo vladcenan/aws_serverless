@@ -6,3 +6,6 @@ resource "random_password" "password" {
   length  = 10
   special = false
 }
+
+resource "random_uuid" "uuid1" {}
+resource "random_uuid" "uuid2" {}

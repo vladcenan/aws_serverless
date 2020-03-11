@@ -5,5 +5,7 @@ data "template_file" "lambda" {
     environment              = var.environment
     secrets_manager_name     = var.secrets_manager_name
     secrets_manager_endpoint = var.secrets_manager_endpoint == "" ? "None" : format("'%s'", var.secrets_manager_endpoint)
+    uuid1                    = var.uuid1
+    uuid2                    = var.uuid2
   }
 }

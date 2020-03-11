@@ -68,3 +68,11 @@ variable "secrets_manager_name" {
   description = "secrets manager name that will be parsed from the secrets manager service store"
   default     = ""
 }
+
+variable "uuid1" {
+  default = ""
+}
+
+variable "uuid2" {
+  default = ""
+}
