@@ -1,5 +1,7 @@
 # aws_serverless
 
+Demo
+
 ## Features
 
 * Live controller that will separate environments and override attributes;
@@ -23,8 +25,8 @@
 * Terraform v0.12.20
 * Terragrunt v0.22.3
 * ruby 2.6.5p114
-  * rspec (3.9.0)
-  * awspec (1.18.5)
+  * rspec (3.9.0) gem
+  * awspec (1.18.5) gem
 * aws credentials (~/.aws/credentials & ~/.aws/config)
 
 ## ChangeLog
