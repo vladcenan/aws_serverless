@@ -18,7 +18,16 @@
 | awsRegion | Name of the AWS Region | string | n/a | yes |
 | environment | Name of the Environment eg: dev, qa, prd | string | n/a | yes |
 
+## Prerequisite
+
+* Terraform v0.12.20
+* Terragrunt v0.22.3
+* ruby 2.6.5p114
+  * rspec (3.9.0)
+  * awspec (1.18.5)
+* aws credentials (~/.aws/credentials & ~/.aws/config)
+
 ## ChangeLog
 
-v1.1.0 - add spec tests
-v1.0.0 - initialize the serverless project
+* v1.1.0 - add spec tests
+* v1.0.0 - initialize the serverless project
