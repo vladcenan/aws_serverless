@@ -8,7 +8,8 @@
 * Creates a two Lambda Functions that will get the secret lambda input;
 * Creates a Step Function that will orchestrate Lambda Functions;
 * Creates a Cloud Watch Event that will trigger the Step Function;
-* Creates IAM Roles and Rolicies.
+* Creates IAM Roles and Policies;
+* AWS Spec Tests.
 
 ## Inputs
 
@@ -19,4 +20,5 @@
 
 ## ChangeLog
 
+v1.1.0 - add spec tests
 v1.0.0 - initialize the serverless project

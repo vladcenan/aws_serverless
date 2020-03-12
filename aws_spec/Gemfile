@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+gem "awspec"  #, :path => "/home/vcenan/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/awspec-1.15.3/lib/awspec"
+gem "ci_reporter"
