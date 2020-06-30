@@ -49,25 +49,22 @@ def parse_secret():
   return key
 
 def connection():
-  key = parse_secret()
-  mongo_admin_user = key["username"]
-  mongo_admin_pass = key["password"]
-  # mongo connection
-  print("mongo --port 27017 -u "+mongo_admin_user+" -p "+mongo_admin_pass)
   # return id
   guid1 = "${uuid1}"
   guid2 = "${uuid2}"
   return(guid1, guid2)
 
 def lambda_handler(event, context):
-  print("Add credentials and key")
+  key = parse_secret()
+  mongo_admin_user = key["username"]
+  mongo_admin_pass = key["password"]
   try:
     guid = connection()
     ids = [guid]
     #return(guid)
     return {
       'statusCode': 200,
-      'body': json.dumps(ids)
+      'body': json.dumps("--user "+mongo_admin_user+" -password "+mongo_admin_pass)
     }
   except Exception as e:
     raise e
