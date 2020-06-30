@@ -64,7 +64,11 @@ def lambda_handler(event, context):
   try:
     guid = connection()
     ids = [guid]
-    return(guid)
+    #return(guid)
+    return {
+      'statusCode': 200,
+      'body': json.dumps(ids)
+    }
   except Exception as e:
     raise e
   else:

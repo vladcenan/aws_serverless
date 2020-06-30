@@ -3,8 +3,8 @@ import json
 
 def lambda_handler(event, context):
   try:
-    print(event[0])
-    ids = [event[0], event[1]]
+    print(event['body'][0])
+    ids = [event['body'][0], event['body'][1]]
     return ids
   except Exception as e:
     raise e

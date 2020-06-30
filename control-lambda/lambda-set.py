@@ -3,7 +3,7 @@ import json
 
 def lambda_handler(event, context):
   try:
-    print(event[1])
+    print(event['body'][1])
   except Exception as e:
     raise e
   else:
